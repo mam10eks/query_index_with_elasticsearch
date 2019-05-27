@@ -1,6 +1,8 @@
+USER=ajdyd
+
 start-jupiter-notebook-for-ajdyd:
-	USER=aqqes docker run -d --user --name ${USER}-notebook \
-		--user $(id -u ${USER}):$(id -g ${USER}) \
+	docker run -d --name ${USER}-notebook \
+		--user $$(id -u ${USER}):$$(id -g ${USER}) \
 		-e NB_USER=${USER} -w /home/${USER} \
 		-v /home/${USER}:/home/jovyan/ \
 		-v /home/${USER}:/home/${USER} \
